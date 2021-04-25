@@ -1,12 +1,16 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+// import { resolveComponent } from '@vue/runtime-core';
+import { createRouter, createWebHistory  } from 'vue-router';
+import routeConfig from './router';
 
-import routeConfig from './route-config';
-Vue.use(Router);
-const videoRouter = new Router(routeConfig);
+console.log(routeConfig);
+// console.log(resolveComponent);
+const videoRouter = createRouter({
+    history: createWebHistory (),
+    routes: routeConfig['routers']
+});
 videoRouter.beforeEach((to, from, next) => {
-    document.body.scrollTop = 0;
-    next();
+    if (to.name !== 'login' && !sessionStorage.getItem('login')) next({ name: 'login' })
+    else next()
 })
 
 export default videoRouter;

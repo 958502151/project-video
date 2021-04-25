@@ -1,11 +1,12 @@
-const HelloWorld = () => import(/* webpackChunkName: "HelloWorld" */ '../components/HelloWorld');
+const HelloWorld = () => import('../components/HelloWorld');
 const login = () => import('../login/login');
+const homeIndex = () => import('../index/index');
 
 export default {
-    mode: 'history',
-    base: 'base',
     routers: [
         {path: '/', component: login, name: 'login'},
+        {path: '/login', component: login, name: 'login'},
         {path: '/HelloWorld', component: HelloWorld, name: 'HelloWorld', meta: { requirAuth: false } },
+        {path: '/homeIndex', component: homeIndex, name: 'homeIndex'},
     ]
 }

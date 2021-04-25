@@ -1,6 +1,13 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
-import App from './App.vue'
+import App from './App.vue';
+import videoRouter from './router/index';
+// import { useRouter } from 'vue-router'
 
-createApp(App).use(ElementPlus).mount('#app')
+const app = createApp(App);
+app.use(videoRouter);
+// app.config.devtools = true;
+// const route = useRouter();
+// console.log(route);
+app.use(ElementPlus).mount('#app');

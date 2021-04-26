@@ -1,14 +1,14 @@
 <template>
+  <div id="app">
     <router-view></router-view>
+  </div>
 </template>
 
 <script>
-// import login from './login/login'
 
 export default {
   name: 'App',
   components: {
-    // login,
   },
   mounted() {
     window.addEventListener('hashchange', () => {

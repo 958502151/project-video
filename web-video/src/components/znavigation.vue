@@ -13,6 +13,22 @@
         <el-menu-item index="1-1">选项1-1</el-menu-item>
       </el-submenu>
       <el-menu-item index="2">选项2</el-menu-item>
+      <span class="logout" style="color: white;">
+        <el-dropdown>
+        <span style="cursor: pointer; color: white;">用户信息<el-icon class="el-icon-user" /></span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>个人设置</el-dropdown-item>
+              <el-dropdown-item>消息</el-dropdown-item>
+              <el-dropdown-item>历史记录</el-dropdown-item>
+              <el-dropdown-item disabled>收藏</el-dropdown-item>
+              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <span style="cursor: pointer;">注销 <el-icon class="el-icon-switch-button" /></span>
+      </span>
     </el-menu>
   </div>
 </template>
@@ -31,5 +47,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-
+.znavigation {
+  .el-menu-demo {
+    display: flex;
+    align-items: baseline;
+    padding-right: 20px;
+    .logout {
+      margin-left: auto;
+    }
+  }
+}
 </style>

@@ -9,7 +9,7 @@
             <el-button plain size="mini" style="margin-left: 30%">注册</el-button>
         </div>
         <div class="backgroundVideo">
-            <!-- <video class="video" :width="videoW" muted="muted" loop="loop" autoplay="autoplay" src="../assets/login/videoXZSS.mp4"/> -->
+            <video class="video" :width="videoW" muted="muted" loop="loop" autoplay="autoplay" src="../assets/login/videoXZSS.mp4"/>
         </div>
     </div>
 </template>

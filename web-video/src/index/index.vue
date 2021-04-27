@@ -4,7 +4,7 @@
         <div class="roElcar">
             <el-carousel class="elcar" :interval="4000" type="card">
                 <el-carousel-item v-for="item in 6" :key="item">
-                    <video @click="route.push({name: 'videoOpen', params: { videoSrc: require('@/assets/login/videoXZSS.mp4') }})" class="video" muted="muted" loop="loop" autoplay="autoplay" src="@/assets/login/videoXZSS.mp4"/>
+                    <video @click="route.push({name: 'videoOpen', params: { videoSrc: require('@/assets/login/videoXZSS.mp4'), name: '测试' }})" class="video" muted="muted" loop="loop" autoplay="autoplay" src="@/assets/login/videoXZSS.mp4"/>
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -13,7 +13,7 @@
               <el-col style="margin-top: 50px" @mouseover="item.flag = false" @mouseleave="item.flag = true" v-for="(item, index) in arr" :offset="index % 4 === 0 ? 0 : 1" :key="index" :span="5">
                   <el-card shadow="hover">
                     <el-image v-show="item.flag" :src="arr[0].imgSrc" style="width: 100%; height: 200px" lazy></el-image>
-                    <video @click="route.push({name: 'videoOpen', params: { videoSrc: item.videoSrc }})" v-show="!item.flag" muted="muted" loop="loop" style="width: 100%; height: 200px" autoplay="autoplay" :src="item.videoSrc"/>
+                    <video @click="route.push({name: 'videoOpen', params: { videoSrc: item.videoSrc, name: item.name }})" v-show="!item.flag" muted="muted" loop="loop" style="width: 100%; height: 200px" autoplay="autoplay" :src="item.videoSrc"/>
                     {{item.name}}<span style="margin-right: auto">———{{item.actor}}</span>
                   </el-card>
               </el-col>

@@ -4,8 +4,8 @@
         <div class="videoDiv">
             <el-breadcrumb class="nginx" separator-class="el-icon-minus">
                 <el-breadcrumb-item :to="{ path: '/homeIndex' }">首页</el-breadcrumb-item>
-                <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-                <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+                <el-breadcrumb-item v-if="type" :to="{ name: 'detailsPage', params: { type }}">{{type}}</el-breadcrumb-item>
+                <el-breadcrumb-item>{{name}}</el-breadcrumb-item>
             </el-breadcrumb>
             <video-tools class="videoPlayer" :options="videoOptions"/>
         </div>
@@ -27,6 +27,7 @@ export default defineComponent({
     },
     setup() {
         const route = useRoute()
+        const { type, name } = route.params
         // const m = require(`${route.query.videoSrc}`);
         const videoOptions = {
             autoplay: false,
@@ -59,6 +60,8 @@ export default defineComponent({
         }
         return {
             videoOptions,
+            type,
+            name,
         }
     },
 })

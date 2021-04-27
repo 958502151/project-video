@@ -1,6 +1,7 @@
 <template>
   <div class="znavigation">
     <el-menu
+      :router="true"
       default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
@@ -8,11 +9,19 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <el-submenu mode="horizontal" index="1">
-        <template #title>选项1</template>
-        <el-menu-item index="1-1">选项1-1</el-menu-item>
+      <el-menu-item index="1" @click="route.push('/homeIndex')">首页</el-menu-item>
+      <el-submenu mode="horizontal" index="2">
+        <template #title>电视剧</template>
+        <el-menu-item :route="{name: 'detailsPage', params: {type: item}}" v-for="(item, index) in list" :key="index" :index="`2-${index + 1}`">{{item}}</el-menu-item>
       </el-submenu>
-      <el-menu-item index="2">选项2</el-menu-item>
+      <el-submenu mode="horizontal" index="3">
+        <template #title>电影</template>
+        <el-menu-item :route="{name: 'detailsPage', params: {type: item}}" v-for="(item, index) in list" :key="index" :index="`3-${index + 1}`">{{item}}</el-menu-item>
+      </el-submenu>
+      <el-submenu mode="horizontal" index="4">
+        <template #title>短视频</template>
+        <el-menu-item :route="{name: 'detailsPage', params: {type: item}}" v-for="(item, index) in list" :key="index" :index="`4-${index + 1}`">{{item}}</el-menu-item>
+      </el-submenu>
       <span class="logout" style="color: white;">
         <el-dropdown>
         <span style="cursor: pointer; color: white;">用户信息<el-icon class="el-icon-user" /></span>
@@ -35,12 +44,17 @@
 
 <script>
 import { defineComponent} from '@vue/composition-api'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
     name: 'znavigation',
     setup() {
+      const list = ['惊悚','动作','恐怖','喜剧','古装','玄幻','魔幻','犯罪','悬疑','记录','热血']
+      const route = useRouter()
         return {
             activeIndex: '1',
+            list,
+            route,
         }
     },
 })

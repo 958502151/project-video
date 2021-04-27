@@ -6,8 +6,9 @@
 
 <script>
 import { defineComponent } from '@vue/composition-api'
-import { onMounted, onBeforeUnmount, ref } from 'vue'
-import videojs from 'video.js';
+import { onMounted, onBeforeUnmount, ref, nextTick } from 'vue'
+import videojs from 'video.js'
+// import 'video.js/dist/video-js.css'
 
 export default defineComponent({
     name: 'videoTools',
@@ -23,15 +24,16 @@ export default defineComponent({
         const player = ref('')
         const videoPlayer = ref(null)
         onMounted(() => {
-            debugger
                 player.value = videojs(videoPlayer.value, props.options, function onPlayerReady() {
                     console.log('onPlayerReady', videoPlayer.value, props.options);
                 })
         })
         onBeforeUnmount(() => {
-            if (player.value) {
-                player.value.dispose()
-            }
+            nextTick(() => {
+                if (player.value) {
+                    player.value.dispose()
+                }
+            })
         })
         return {
             videoPlayer,

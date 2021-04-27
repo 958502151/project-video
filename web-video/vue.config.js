@@ -31,7 +31,7 @@ module.exports = {
             .loader('file-loader')
     },
     devServer: {
-        proxy: 'http://localhost:8081'
+        proxy: 'http://localhost:8080'
         // proxy: 'http://dc.zookingsoft.com'
     }
 }

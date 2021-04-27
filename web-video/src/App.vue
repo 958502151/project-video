@@ -1,14 +1,17 @@
 <template>
   <div id="app">
+    <znavigation style="height: 10%"></znavigation>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import znavigation from './components/znavigation'
 
 export default {
   name: 'App',
   components: {
+    znavigation,
   },
   mounted() {
     window.addEventListener('hashchange', () => {

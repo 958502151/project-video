@@ -1,6 +1,6 @@
 <template>
     <div class="canvas-test">
-        <canvas ref="myCanvas" height="880" width="1900" id="myCanvas">
+        <canvas class="donghua" ref="myCanvas" height="880" width="1900" id="myCanvas">
         </canvas>
     </div>
 </template>
@@ -72,5 +72,22 @@ export default defineComponent({
 <style lang="scss">
     .canvas-test {
         text-align: center;
+        .donghua {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        }
     }
 </style>

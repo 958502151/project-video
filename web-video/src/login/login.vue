@@ -21,6 +21,7 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
     name: 'login',
     setup() {
+        sessionStorage.setItem('login', false);
         console.log(document.getElementsByTagName('body'));
         document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
         const route = useRouter();
@@ -36,6 +37,7 @@ export default defineComponent({
         loginIng() {
             if (this.username === 'admin' && this.password === 'admin') {
                 sessionStorage.setItem('login', true);
+                document.getElementsByTagName('body')[0].style.overflowY = 'auto';
                 this.route.push('/homeIndex')
             }
         },

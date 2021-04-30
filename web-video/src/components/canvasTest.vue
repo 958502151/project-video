@@ -1,6 +1,6 @@
 <template>
     <div class="canvas-test">
-        <canvas ref="myCanvas" height="880" width="1500" id="myCanvas">
+        <canvas ref="myCanvas" height="880" width="1900" id="myCanvas">
         </canvas>
     </div>
 </template>
@@ -15,6 +15,7 @@ export default defineComponent({
         const myCanvas = reactive(ref(null))
         onMounted(() => {
             const canvas= myCanvas.value
+            canvas.style.backgroundColor = 'beige'
             var ctx = canvas.getContext('2d')
             ctx.globalCompositeOperation = "lighter";
             // window.setInterval(()=>{darw(ctx); ctx.moveTo(ctx.canvas.clientWidth / 2 + 5, ctx.canvas.clientHeight - 20 + 5);}, 800);

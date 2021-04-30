@@ -27,7 +27,7 @@
         <span style="cursor: pointer; color: white;">用户信息<el-icon class="el-icon-user" /></span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>个人设置</el-dropdown-item>
+              <el-dropdown-item @click="route.push('/userSet')">个人设置</el-dropdown-item>
               <el-dropdown-item>消息</el-dropdown-item>
               <el-dropdown-item>历史记录</el-dropdown-item>
               <el-dropdown-item disabled>收藏</el-dropdown-item>

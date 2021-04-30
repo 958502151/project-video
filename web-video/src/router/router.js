@@ -4,6 +4,7 @@ const homeIndex = () => import('../index/index');
 const videoOpen = () => import('../openVideo/videoOpen');
 const detailsPage = () => import('../index/detailsPage');
 const canvasTest = () => import('../components/canvasTest');
+const userSet = () => import('../page/user/userSet');
 
 export default {
     routers: [
@@ -14,5 +15,6 @@ export default {
         {path: '/videoOpen', component: videoOpen, name: 'videoOpen'},
         {path: '/detailsPage', component: detailsPage, name: 'detailsPage'},
         {path: '/canvasTest', component: canvasTest, name: 'canvasTest'},
+        {path: '/userSet', component: userSet, name: 'userSet'},
     ]
 }

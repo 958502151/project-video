@@ -16,7 +16,6 @@ export default defineComponent({
         onMounted(() => {
             const canvas= myCanvas.value
             var ctx = canvas.getContext('2d')
-            debugger
             ctx.globalCompositeOperation = "lighter";
             // window.setInterval(()=>{darw(ctx); ctx.moveTo(ctx.canvas.clientWidth / 2 + 5, ctx.canvas.clientHeight - 20 + 5);}, 800);
             darw(ctx,ctx.canvas.clientWidth/2,ctx.canvas.clientHeight + 160,150,-Math.PI / 2, 10, 30)

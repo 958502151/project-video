@@ -48,6 +48,9 @@ export default defineComponent({
             n_depth = depth-1;
             //判断树是否结束
             if(!n_depth){
+                ctx.fillStyle= `rgb(${(parseInt(rand() * 256))},${(parseInt(rand() * 256))},${(parseInt(rand() * 256))})`;
+                ctx.arc(endx,endy,0.5,0,2*Math.PI);
+                ctx.fill()
                 return;
             }
             subbranch= (rand() * (maxbranch-1)) + 1;

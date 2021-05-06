@@ -28,7 +28,9 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="route.push('/userSet')">个人设置</el-dropdown-item>
-              <el-dropdown-item>消息</el-dropdown-item>
+              <el-dropdown-item>消息
+                <el-badge class="mark" :value="12" />
+              </el-dropdown-item>
               <el-dropdown-item>历史记录</el-dropdown-item>
               <el-dropdown-item disabled>收藏</el-dropdown-item>
               <el-dropdown-item divided>蚵仔煎</el-dropdown-item>

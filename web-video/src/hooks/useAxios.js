@@ -2,12 +2,12 @@
 
 import {ref} from 'vue'
 import axios from 'axios';
-function usURLAxios(url) {
+function usURLAxios(url, type) {
     const result = ref(null)
     const loading = ref(true)
     const loaded =ref(false)
     const error =ref(null)
-    axios.get(url).then((res)=>{
+    axios[type](url).then((res)=>{
         loading.value = false
         loaded.value = true
         result.value = res.data

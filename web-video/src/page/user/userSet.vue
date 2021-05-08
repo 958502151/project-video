@@ -78,7 +78,7 @@
             <el-tab-pane label="高级信息">
                 <span>高级信息</span>
                 <br/>
-                <el-button style="margin-top: 30px; margin-left: 30px" size="small">修改密码</el-button>
+                <el-button style="margin-top: 30px; margin-left: 30px" size="small" @click="changePassword">修改密码</el-button>
                 <br/>
                 <span>剩余内容待开发</span>
             </el-tab-pane>
@@ -88,6 +88,7 @@
 <script>
 import { defineComponent } from '@vue/composition-api'
 import { reactive, ref, nextTick } from 'vue'
+import usURLAxios from '../../hooks/useAxios'
 
 export default defineComponent({
     name: "userSet",
@@ -142,6 +143,11 @@ export default defineComponent({
             loveList = JSON.parse(JSON.stringify({...buffLoveList}._rawValue));
             userInfo = JSON.parse(JSON.stringify({...buffUserInfo}._rawValue));
         })
+        const changePassword = (() => {
+            const { result, loading, loaded, error } = usURLAxios('/test', 'post');
+            console.log( result, loading, loaded, error );
+        })
+
         return {
             buffLoveList,
             closable,
@@ -152,7 +158,8 @@ export default defineComponent({
             showInput,
             handleClose,
             buffUserInfo,
-            handleSave
+            handleSave,
+            changePassword
         }
     },
 })

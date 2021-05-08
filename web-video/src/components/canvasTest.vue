@@ -2,6 +2,7 @@
     <div class="canvas-test">
         <canvas class="donghua" ref="myCanvas" height="880" width="1900" id="myCanvas">
         </canvas>
+        <el-button style="float: right" type="error" @click="flag = !flag">stop</el-button>
     </div>
 </template>
 
@@ -13,6 +14,8 @@ export default defineComponent({
     name: 'canvasTest',
     setup() {
         const myCanvas = reactive(ref(null))
+
+        const flag = reactive(ref(true))
         onMounted(() => {
             const canvas= myCanvas.value
             canvas.style.backgroundColor = 'beige'
@@ -58,15 +61,17 @@ export default defineComponent({
             for(var i=0;i<subbranch;i++){
                 n_angle = angle +rand() * maxangle -maxangle *0.5;
                 n_length = length * (0.5 + rand() *0.5);
-                setTimeout(function (){
+                if (flag.value) setTimeout(function (){
                     darw(ctx,endx,endy,n_length,n_angle,n_depth,branchWidth);
                     return;
                 },1000 / 60)
+                else return
             }
         })
 
         return {
             myCanvas,
+            flag,
         }
     },
 })

@@ -22,6 +22,7 @@
         <el-menu-item style="color: gray;" :route="{name: 'detailsPage', params: {type: item}}" v-for="(item, index) in list" :key="index" :index="`4-${index + 1}`">{{item}}</el-menu-item>
       </el-submenu>
       <el-menu-item :route="{name: 'canvasTest'}" index="5">动画</el-menu-item>
+      <el-menu-item :route="{name: 'tentectVideo'}" index="6">腾讯视频</el-menu-item>
       <span class="logout" style="color: white;">
         <el-dropdown>
         <span style="cursor: pointer; color: white;">用户信息<el-icon class="el-icon-user" /></span>
